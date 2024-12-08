@@ -12,7 +12,7 @@ app.use(bodyParser.json());
 
 // CORS configuration
 const corsOptions = {
-  origin: "https://your-frontend-domain.com", // Replace with your frontend domain
+  origin: ["https://stone-monkey1.github.io",], // GitHub Pages domain
   methods: ["POST"],
 };
 app.use(cors(corsOptions));
@@ -75,7 +75,11 @@ app.post("/send-email", async (req, res) => {
 });
 
 // Start the server
-const PORT = 3001; // Use a different port to avoid conflict with Angular dev server
+const PORT = process.env.PORT || 3001; // Use the PORT variable or fallback to 3001
+app.listen(PORT, () => {
+  console.log(`Backend running on port ${PORT}`);
+});
+server;
 app.listen(PORT, () => {
   console.log(`Backend running on http://localhost:${PORT}`);
 });
