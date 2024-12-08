@@ -1,0 +1,13 @@
+.al-bio-image-container {
+    margin: auto;
+}
+.al-bio-image-container img {
+    max-height: 650px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 22px 1px black;
+}
+@media (max-width: 576px) {
+    .al-bio-image-container img {
+        height: 45vh;
+    }
+}

@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <div class="text-center">
+        <h2>Completed Projects:</h2>
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngFor="let carousel of carousels" [ngClass]="carousel.customClass">
+  <div class="separator-div-full-thick"></div>
+  <div class="carousel-description text-center">
+    <p>Project Description: {{ carousel.description }}</p>
+  </div>
+  <app-img-carousel [carouselItems]="carousel.carouselItems"></app-img-carousel>
+</div>

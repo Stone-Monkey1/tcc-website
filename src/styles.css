@@ -1,0 +1,84 @@
+/* Reusable CSS */
+p,
+li {
+  font-size: 1.4rem;
+}
+.display-flex-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.flex-row-content {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  flex: 1;
+}
+.padding-1 {
+  padding: 1em;
+}
+.padding-5-percent {
+  padding: 5%;
+}
+.color-white {
+  color: white;
+}
+.backgrounod-white {
+  background-color: white;
+}
+.background-grey {
+  background-color: grey;
+  color: white;
+}
+.background-green {
+  background-color: green;
+}
+.bold {
+  font-weight: bold;
+}
+.separator-div-full {
+  width: 95%;
+  margin: 10px auto;
+  text-align: center;
+  border-bottom: 1px solid white;
+}
+.separator-div-full-thick {
+  width: 95%;
+  margin: 10px auto;
+  text-align: center;
+  border-bottom: 3px solid white;
+}
+.separator-div-small {
+  max-width: 50px;
+  margin: 10px 0px;
+  text-align: center;
+  border-bottom: 2px solid white;
+}
+.vertical-separator {
+  width: 2px;
+  background-color: white;
+  margin: 0 10px;
+  flex-shrink: 0;
+  height: auto;
+}
+.display-flex {
+  display: flex;
+}
+.margin-auto {
+  margin: auto;
+}
+.content-center {
+  justify-content: center;
+}
+.margin-auto {
+  margin: auto;
+}
+.text-align-left {
+  text-align: left;
+}
+@media (max-width: 992px) {
+  .display-flex-row {
+    display: block;
+  }
+}

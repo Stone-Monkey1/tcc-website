@@ -1,0 +1,179 @@
+<div
+  class="container thomason_construction_company-container padding-5-percent"
+>
+  <div class="row">
+    <div class="col-12">
+      <div class="title-row text-center">
+        <h2>Interested in having some work done?</h2>
+        <h2>
+          Fill out the form below and get a
+          <span class="bold">FREE</span> estimate.
+        </h2>
+      </div>
+    </div>
+  </div>
+  <form
+    [formGroup]="estimateForm"
+    (ngSubmit)="onSubmit()"
+    class="form-horizontal streakform thomason_construction_company"
+    data-tdds-form-type=""
+    role="form"
+  >
+    <input
+      formControlName="name"
+      name="name"
+      type="hidden"
+      value="thomason_construction_company"
+    />
+    <input
+      formControlName="formTitle"
+      name="form_title"
+      type="hidden"
+      value="thomason_construction_company"
+    />
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="form-group">
+          <input
+            formControlName="firstName"
+            class="form-control text-center"
+            data-required="true"
+            name="first_name"
+            placeholder="First Name"
+            type="text"
+          />
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="form-group">
+          <input
+            formControlName="lastName"
+            class="form-control text-center"
+            data-required="true"
+            name="last_name"
+            placeholder="Last Name"
+            type="text"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-6 offset-3 offset-md-0 col-md-6">
+        <div class="form-group">
+          <input
+            formControlName="zip"
+            class="form-control text-center"
+            data-required="true"
+            name="zip"
+            placeholder="ZIP Code"
+            type="text"
+          />
+        </div>
+      </div>
+      <div class="col-12 col-md-6">
+        <div class="form-group">
+          <input
+            formControlName="email"
+            class="form-control text-center"
+            name="email"
+            data-required="true"
+            id="email"
+            placeholder="Email"
+            type="email"
+            pattern="[^@\s]+@[^@\s]+\.[^@\s]+"
+            title="Valid email format required"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <div class="form-group">
+          <select
+            formControlName="workType"
+            class="form-select"
+            name="workType"
+          >
+            <option value="" disabled selected>Work Type</option>
+            <option value="New Homes">New Homes</option>
+            <option value="Additions">Additions</option>
+            <option value="General Construction Consulting">
+              General Construction Consulting
+            </option>
+            <option value="Porches">Porches</option>
+            <option value="Decks">Decks</option>
+            <option value="Structural Repairs">Structural Repairs</option>
+            <option value="Replacement Windows & Doors">
+              Replacement Windows & Doors
+            </option>
+            <option value="Siding">Siding</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <div class="form-group text-align-left">
+          <label class="form-label" for="job-description"
+            >Job Description:</label
+          >
+          <textarea
+            formControlName="jobDescription"
+            placeholder="Describe the type of work you'd like to have done."
+            aria-label="job description"
+            class="form-control"
+            id="job-description"
+            name="job_description"
+            rows="4"
+          ></textarea>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <div class="text-end">
+          <button
+            class="btn btn-primary"
+            type="submit"
+            [disabled]="!estimateForm.valid"
+          >
+            Submit
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+  <!-- Modal -->
+  <div
+    class="modal fade"
+    id="successModal"
+    tabindex="-1"
+    aria-labelledby="successModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="successModalLabel">Form Submitted</h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">Someone will be in touch with you shortly!</div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

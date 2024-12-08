@@ -1,0 +1,148 @@
+* {
+    font-family:Arial, Helvetica, sans-serif
+  }
+div.modal-dialog {
+  width: 100%;
+}
+.thomason_construction_company-container .title-row {
+  padding: 35px 35px 0px 35px;
+}
+form.thomason_construction_company {
+  background-color: #ffffff;
+  margin: 7% auto;
+  border: 4px solid green;
+  box-shadow: 0px 0px 22px 1px grey;
+  width: 80%;
+  max-width: 700px;
+  text-align: center;
+  padding: 40px;
+  border-radius: 10px;
+}
+.thomason_construction_company .form-title {
+  color: black;
+  background-color: white;
+  border: 11px solid black;
+  box-shadow: 0px 0px 0px 7px white;
+  border-radius: 4px;
+  padding: 10px;
+  margin-bottom: 10%;
+  margin-top: 4%;
+}
+.thomason_construction_company .form-group {
+  margin-bottom: 42px;
+}
+.thomason_construction_company .form-group.form-group_textarea {
+  text-align: left;
+}
+.thomason_construction_company .form-group.form-group_textarea label {
+  font-size: 18px;
+  color: #999999;
+}
+.thomason_construction_company .form-group.form-group_textarea textarea {
+  font-size: 15px;
+}
+
+.thomason_construction_company .form-control {
+  background-color: transparent;
+  font-size: 26px;
+  color: black;
+  box-shadow: none;
+  border-radius: 0px;
+  border-width: 0px 0px 3px 0px;
+}
+.thomason_construction_company textarea.form-control {
+  background-color: transparent;
+  font-size: 26px;
+  color: black;
+  box-shadow: none;
+  border-radius: 0px;
+  border-width: 2px;
+}
+.thomason_construction_company input:-internal-autofill-selected {
+  color: black !important;
+}
+.thomason_construction_company .form-section-title {
+  color: black;
+  background-color: white;
+  border: 7px solid black;
+  box-shadow: 0px 0px 0px 4px white;
+  border-radius: 4px;
+  margin-bottom: 4%;
+  margin-top: 4%;
+}
+.preferred-contact-text-container p {
+  font-size: 18px;
+  color: #999999;
+}
+.preferred-contact-button-container {
+  background-color: #0f30ab;
+  border: 3px solid #0f30ab;
+  border-radius: 6px;
+  width: 140px;
+  margin: auto auto 10px auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+.preferred-contact-button-container a {
+  padding: 10px;
+  width: 50%;
+  color: white;
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
+}
+.preferred-contact-button-container a:hover,
+.preferred-contact-button-container a:active {
+  color: black;
+  text-decoration: none;
+  background: RGB(198, 238, 255);
+}
+.preferred-contact-button-container a:first-of-type {
+  border-right: solid 1px RGB(198, 238, 255);
+}
+.thomason_construction_company button[type="submit"] {
+  background: green;
+  color: #ffffff;
+  border-radius: 6px;
+  padding: 9px 36px;
+  border: 2px solid green;
+}
+.thomason_construction_company button[type="submit"]:hover,
+.thomason_construction_company button[type="submit"]:active {
+  background-color: #ffffff;
+  color: green;
+}
+.thomason_construction_company select.form-control {
+  padding: 0px;
+}
+.thomason_construction_company select.form-control option {
+  text-align: center;
+}
+
+@media (min-width: 900px) {
+
+  .float-right {
+    float: right;
+  }
+}
+@media (max-width: 991px) {
+  .thomason_construction_company-container .title-row {
+    padding: 0px;
+  }
+  .thomason_construction_company-container .title-row h2 {
+    font-size: 20px;
+  }
+  .thomason_construction_company .form-control {
+    font-size: 18px;
+  }
+  form.thomason_construction_company {
+    padding: 15px;
+  }
+  .thomason_construction_company .form-group {
+    margin-bottom: 39px;
+    padding: 0px 15px;
+  }
+  form.thomason_construction_company {
+    width: 98%;
+  }
+}

@@ -1,0 +1,235 @@
+#horizontal-carousel-component-cards .scroll-parent {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+}
+
+#horizontal-carousel-component-cards .scroll-horizontal::-webkit-scrollbar {
+  display: none;
+}
+
+#horizontal-carousel-component-cards .scroll-horizontal > * {
+  display: inline-block;
+  white-space: normal;
+  vertical-align: text-top;
+}
+
+#horizontal-carousel-component-cards .scroll-nav {
+  position: absolute;
+  bottom: 0;
+  -webkit-transition: all 0.1s ease;
+  -moz-transition: all 0.1s ease;
+  -o-transition: all 0.1s ease;
+  transition: all 0.1s ease;
+}
+
+#horizontal-carousel-component-cards .scroll-nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#horizontal-carousel-component-cards .scroll-nav-btn {
+  font-size: inherit;
+  font-weight: 300;
+  background-color: transparent;
+  border: transparent;
+  border-radius: 100%;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+#horizontal-carousel-component-cards .scroll-nav {
+  position: static;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+#horizontal-carousel-component-cards .scroll-nav svg {
+  height: auto;
+  width: 2.7em;
+}
+
+#horizontal-carousel-component-cards .scroll-nav-btn {
+  margin: 0 10px;
+}
+
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.carousel-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #ccc;
+  margin: 0 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.carousel-dot.active {
+  background-color: #000;
+}
+@media (max-width: 767px) {
+  #horizontal-carousel-component-cards .scroll-parent {
+    width: 90vw;
+  }
+}
+
+#horizontal-carousel-component-cards
+  #horizontalScrollService[data-has-scrollbar="false"]
+  .scroll-horizontal {
+  text-align: center;
+}
+
+@media (max-width: 767px) {
+  #horizontal-carousel-component-cards #horizontalScrollService {
+    width: 100vw;
+  }
+
+  #horizontal-carousel-component-cards
+    #horizontalScrollService
+    .scroll-horizontal {
+    padding: 15px 0;
+  }
+}
+#horizontal-carousel-component-cards .card-background {
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+  background-position: center;
+}
+#horizontal-carousel-component-cards .scroll-horizontal {
+  position: relative;
+  width: calc(100% - 100px - 40px);
+  overflow-x: auto;
+  display: flex;
+  flex-wrap: nowrap;
+  padding: 40px 0px;
+  margin: 0 auto;
+}
+#horizontal-carousel-component-cards .scroll-item {
+  flex: 0 0 auto;
+  margin: 0 6px;
+  width: calc(100% - 12px);
+  box-sizing: border-box;
+}
+.cardV2 {
+  width: 100%;
+  height: 750px;
+  border-radius: 12px;
+  background-color: white;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 0 10px #000000ab;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+#horizontal-carousel-component-cards .scroll-horizontal::-webkit-scrollbar {
+  display: none;
+}
+.deck-before {
+  background: url(../../../assets/deck-before.jpg);
+}
+.deck-before-2 {
+  background: url(../../../assets/deck-before-2.jpg);
+  background-position: center;
+}
+.deck-after {
+  background: url(../../../assets/deck-after.jpg);
+}
+.deck-after-2 {
+  background: url(../../../assets/deck-after-2.PNG);
+  background-position: center;
+}
+.porch-before {
+  background: url(../../../assets/porch-before.jpg);
+  background-position: center bottom;
+}
+.porch-before-2 {
+  background: url(../../../assets/porch-before-2.png);
+  background-position: center top;
+}
+.porch-after {
+  background: url(../../../assets/porch-after.jpg);
+}
+.porch-after-2 {
+  background: url(../../../assets/porch-after-2.png);
+  background-position: center;
+}
+.siding-replacement-before {
+  background: url(../../../assets/siding-replacement-before.jpg);
+}
+.siding-replacement-after {
+  background: url(../../../assets/siding-replacement-after.jpg);
+}
+::ng-deep .carousel-2 .cardV2 {
+  width: 50%;
+  margin: auto;
+  height: 70vh;
+}
+.cardV2-text-content {
+  padding: 12px;
+  flex-grow: 1;
+  overflow: auto;
+}
+.cardV2__title {
+  align-self: center;
+  padding: 12px;
+  max-height: 70px;
+}
+.cardV2__btn {
+  align-self: center;
+  border: 2px solid var(--primary-color);
+  background-color: var(--primary-color);
+  background-color: black;
+  border-radius: 6px;
+  padding: 5px 25px;
+  width: fit-content;
+  margin: 12px auto;
+  color: white;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.cardV2__btn:hover,
+.cardV2__btn:focus,
+.cardV2__btn:active {
+  color: black;
+  background-color: #ffffff;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  padding: 5px 40px;
+}
+@media (max-width: 1200px) {
+  /* #horizontal-carousel-component-cards .scroll-item {
+    margin: 0 6px;
+    width: calc(50% - 12px);
+  } */
+  .cardV2 {
+    height: 650px;
+  }
+  .porch-before-2 {
+    background-position: center bottom;
+  }
+}
+@media (max-width: 576px) {
+  .cardV2 {
+    height: 30vh;
+  }
+  #horizontal-carousel-component-cards .scroll-horizontal {
+    width: 100%;
+  }
+}

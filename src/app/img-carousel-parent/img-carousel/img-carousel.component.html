@@ -1,0 +1,78 @@
+<div id="horizontal-carousel-component-cards">
+  <div
+    id="horizontalScrollService"
+    class="scroll-parent"
+    [attr.data-has-scrollbar]="hasScrollbar"
+    [attr.data-scroll-region]="scrollRegion"
+  >
+    <div #scrollHorizontal class="scroll-horizontal">
+      <!-- Dynamic Items -->
+      <div
+        *ngFor="let item of carouselItems; let i = index"
+        class="scroll-item"
+        [attr.data-index]="i"
+      >
+        <div class="cardV2">
+          <div class="card-background" [ngClass]="item.backgroundClass"></div>
+          <h3 class="cardV2__title">{{ item.title }}</h3>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navigation Arrows -->
+    <div class="display-flex content-center">
+      <div class="scroll-nav scroll-nav--left">
+        <button
+          type="button"
+          class="scroll-nav-btn"
+          (click)="scroll('left')"
+          tabindex="0"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+        </button>
+      </div>
+      <div class="carousel-dots">
+        <div
+          *ngFor="let item of carouselItems; let i = index"
+          class="carousel-dot"
+          [class.active]="isActiveDot(i)"
+          (click)="scrollToIndex(i)"
+        ></div>
+      </div>
+      <div class="scroll-nav scroll-nav--right">
+        <button
+          type="button"
+          class="scroll-nav-btn"
+          (click)="scroll('right')"
+          tabindex="0"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
