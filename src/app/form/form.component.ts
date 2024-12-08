@@ -38,7 +38,7 @@ export class FormComponent {
       const formData = this.estimateForm.value;
 
       // Send the form data to the backend
-      this.http.post('http://localhost:3001/send-email', formData).subscribe(
+      this.http.post('https://tcc-website-q9vq.onrender.com/send-email', formData).subscribe(
         (response) => {
           console.log('Email sent successfully:', response);
           this.showModal();
