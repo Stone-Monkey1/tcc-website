@@ -12,7 +12,7 @@ app.use(bodyParser.json());
 
 // CORS configuration
 const corsOptions = {
-  origin: ["https://stone-monkey1.github.io", "http://localhost:4200"], // GitHub Pages domain
+  origin: ["https://www.buildwithtcc.pro/", "http://localhost:4200"], // GitHub Pages domain
   methods: ["POST"],
 };
 app.use(cors(corsOptions));
