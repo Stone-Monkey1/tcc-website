@@ -1,0 +1,114 @@
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+.contact-info {
+  text-align: center;
+  width: 100%;
+}
+.contact-info p {
+  font-size: 1rem;
+}
+.contact-info a {
+  text-decoration: underline;
+}
+.flex-row-content.nav-logo {
+  flex-direction: row;
+}
+.flex-row-content.nav-buttons {
+  flex-direction: column;
+}
+.nav-buttons.flex-row-content {
+  justify-content: center;
+}
+.button-container {
+  display: flex;
+  justify-content: center;
+}
+button {
+  color: white;
+  background-color: transparent;
+  border: 1px solid white;
+  padding: 0.5rem 1rem;
+  margin: 0 0.5rem;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: white;
+  color: #333;
+}
+/* Hamburger Button */
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.btn-line {
+  width: 20px;
+  height: 2px;
+  margin: 3px 0;
+  background: black;
+  transition: all 0.5s ease-out;
+}
+
+/* Hamburger Active Animation */
+.hamburger.active .btn-line:nth-child(1) {
+  transform: rotate(407deg) translate(7px, 2px);
+}
+.hamburger.active .btn-line:nth-child(2) {
+  opacity: 0;
+  transform: rotate(360deg);
+}
+.hamburger.active .btn-line:nth-child(3) {
+  transform: rotate(-407deg) translate(9px, -5px);
+}
+
+/* Mobile Navigation Menu */
+.nav-buttons-mobile {
+  display: none;
+  flex-direction: column;
+  padding: 10px;
+  border-radius: 0px 0px 6px 6px;
+  background-color: #177b4ece;
+  align-items: center; /* Center the buttons horizontally */
+}
+
+.nav-buttons-mobile.active {
+  display: flex;
+  width: auto;
+  float: none;
+  align-items: flex-end;
+}
+
+.nav-buttons-mobile .button-container {
+  display: flex;
+  flex-direction: column; /* Stack buttons vertically */
+  gap: 10px; /* Add space between buttons */
+  align-items: stretch; /* Center the buttons */
+}
+
+.nav-buttons-mobile button {
+  width: auto; /* Do not stretch buttons to full width */
+  border: 1px solid white;
+  padding: 0.5em 1.5em;
+  background-color: transparent;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.nav-buttons-mobile button:hover {
+  background-color: white;
+  color: #333;
+}

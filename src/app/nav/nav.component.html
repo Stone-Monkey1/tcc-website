@@ -1,0 +1,75 @@
+<nav>
+  <div class="background-green padding-1">
+    <div class="display-flex">
+      <!-- Logo -->
+      <div class="nav-logo flex-row-content">
+        <img class="img-responsive" src="assets/tcc-logo.png" alt="TCC Logo" />
+      </div>
+      <!-- Desktop Navigation -->
+      <div class="nav-buttons flex-row-content d-none d-lg-flex">
+        <div class="contact-info">
+          <p class="color-white">
+            Contact me:
+            <a class="color-white" href="mailto:buildwithtcc@gmail.com"
+              >buildwithtcc&#64;gmail.com</a
+            >
+          </p>
+        </div>
+        <div class="button-container">
+          <button (click)="scrollTo('bio-section')">About Me</button>
+          <button (click)="scrollTo('free-estimate-form')">
+            Free Estimate
+          </button>
+          <button (click)="scrollTo('completed-projects')">
+            Completed Projects
+          </button>
+        </div>
+      </div>
+      <!-- Mobile Hamburger Button -->
+      <div
+        class="hamburger d-lg-none"
+        (click)="toggleMobileMenu()"
+        [class.active]="mobileMenuOpen"
+      >
+        <div class="btn-line"></div>
+        <div class="btn-line"></div>
+        <div class="btn-line"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Navigation Menu -->
+  <div
+    class="nav-buttons-mobile d-lg-none"
+    [class.active]="mobileMenuOpen"
+  >
+    <div class="contact-info">
+      <p class="color-white text-align-right">
+        Contact me:
+        <a class="color-white" href="mailto:buildwithtcc@gmail.com"
+          >buildwithtcc&#64;gmail.com</a
+        >
+      </p>
+    </div>
+    <div class="button-container">
+      <button
+        class="text-align-right"
+        (click)="scrollTo('bio-section'); closeMobileMenu()"
+      >
+        About Me
+      </button>
+      <button
+        class="text-align-right"
+        (click)="scrollTo('free-estimate-form'); closeMobileMenu()"
+      >
+        Free Estimate
+      </button>
+      <button
+        class="text-align-right"
+        (click)="scrollTo('completed-projects'); closeMobileMenu()"
+      >
+        Completed Projects
+      </button>
+    </div>
+  </div>
+</nav>

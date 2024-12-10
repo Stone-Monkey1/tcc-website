@@ -4,6 +4,7 @@
     url(../../../src/assets/al-thomason-header-img.jpg);
   background-size: cover;
   background-position: center bottom;
+  margin-top: var(--nav-height, 0);
 }
 .flex-row .flex-row-content {
   justify-content: center;

@@ -32,7 +32,7 @@ li {
   color: white;
 }
 .background-green {
-  background-color: green;
+  background-color: #177B4E;
 }
 .bold {
   font-weight: bold;
@@ -76,6 +76,9 @@ li {
 }
 .text-align-left {
   text-align: left;
+}
+.text-align-right {
+  text-align: right;
 }
 @media (max-width: 992px) {
   .display-flex-row {

@@ -1,0 +1,36 @@
+footer {
+    height: auto;
+    width: 100%;
+    padding: 2rem;
+    margin-top: 7%;
+    flex-direction: column;
+  }
+  .flex-row-content {
+    justify-content: center;
+    flex: none;
+    flex-direction: row;
+  }
+  button {
+    color: white;
+    background-color: transparent;
+    border: 1px solid white;
+    padding: 0.5rem 1rem;
+    margin: 0 0.5rem;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    max-height: 42px;
+  }
+  
+  button:hover {
+    background-color: white;
+    color: #333;
+  }
+  @media (max-width: 576px) {
+    .flex-row-content {
+      flex-direction: column;
+    }
+    .flex-row-content button {
+      margin-bottom: 1em;
+    }
+  }
