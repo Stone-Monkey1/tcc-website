@@ -12,10 +12,19 @@ app.use(bodyParser.json());
 
 // CORS configuration
 const corsOptions = {
-  origin: ["https://www.buildwithtcc.pro/", "http://localhost:4200"], // GitHub Pages domain
-  methods: ["POST"],
+  origin: ["https://www.buildwithtcc.pro", "http://localhost:4200"],
+  methods: ["POST", "OPTIONS"], // Include OPTIONS for preflight
 };
 app.use(cors(corsOptions));
+
+// Explicitly handle preflight requests
+app.options("/send-email", cors(corsOptions));
+
+// Add logging middleware
+app.use((req, res, next) => {
+  console.log(`${req.method} request to ${req.url}`);
+  next();
+});
 
 // Rate limiting configuration
 const limiter = rateLimit({
@@ -41,17 +50,17 @@ app.post("/send-email", async (req, res) => {
 
   // Create the transporter
   const transporter = nodemailer.createTransport({
-    service: "gmail", // Use your email service
+    service: "gmail",
     auth: {
-      user: process.env.EMAIL_USER, // Use environment variable
-      pass: process.env.EMAIL_PASS, // Use environment variable
+      user: process.env.EMAIL_USER,
+      pass: process.env.EMAIL_PASS,
     },
   });
 
   // Email content
   const mailOptions = {
-    from: email, // User's email
-    to: process.env.EMAIL_TO, // Use environment variable
+    from: email,
+    to: process.env.EMAIL_TO,
     subject: "New Estimate Request",
     text: `
     You have a new estimate request:
@@ -75,7 +84,7 @@ app.post("/send-email", async (req, res) => {
 });
 
 // Start the server
-const PORT = process.env.PORT || 3002; // Use the PORT variable or fallback to 3002
+const PORT = process.env.PORT || 3002;
 app.listen(PORT, () => {
   console.log(`Backend running on http://localhost:${PORT}`);
 });
