@@ -44,7 +44,7 @@ app.post("/send-email", async (req, res) => {
     phone,
     workType,
     jobDescription,
-    preferredContact, // Include preferredContact
+    preferredContact,
   } = req.body;
 
   // Basic validation
