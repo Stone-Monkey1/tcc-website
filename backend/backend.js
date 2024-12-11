@@ -47,7 +47,7 @@ app.post("/send-email", async (req, res) => {
     preferredContact,
   } = req.body;
 
-  // Basic validation
+  // Basic validation for required fields
   if (
     !firstName ||
     !lastName ||
@@ -55,11 +55,19 @@ app.post("/send-email", async (req, res) => {
     !email ||
     !phone ||
     !workType ||
-    !preferredContact // Validate preferredContact
+    !preferredContact
   ) {
     return res.status(400).json({ message: "Missing required fields" });
   }
 
+  // Validate preferred contact method
+  if (!["email", "phone"].includes(preferredContact)) {
+    return res
+      .status(400)
+      .json({ message: "Invalid preferred contact method" });
+  }
+
+  // Validate email format
   if (!email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
     return res.status(400).json({ message: "Invalid email format" });
   }
@@ -79,17 +87,16 @@ app.post("/send-email", async (req, res) => {
     to: process.env.EMAIL_TO,
     subject: "New Estimate Request",
     text: `
-    You have a new estimate request:
-    Name: ${firstName} ${lastName}
-    ZIP Code: ${zip}
-    Preferred Contact Method: ${
-      preferredContact === "email" ? `Email: ${email}` : `Phone: ${phone}`
-    }
-    Work Type: ${workType}
-    Job Description: ${jobDescription || "N/A"}
-  `,
+          You have a new estimate request:
+          Name: ${firstName} ${lastName}
+          ZIP Code: ${zip}
+          Preferred Contact Method: ${preferredContact}
+          Email: ${email}
+          Phone: ${phone}
+          Work Type: ${workType}
+          Job Description: ${jobDescription || "N/A"}
+      `,
   };
-
   try {
     // Send the email
     const info = await transporter.sendMail(mailOptions);

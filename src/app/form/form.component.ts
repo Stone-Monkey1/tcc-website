@@ -25,9 +25,9 @@ export class FormComponent implements AfterViewInit {
       formTitle: ['thomason_construction_company'],
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
-      preferredContact: ['email'],
+      preferredContact: ['email', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      phone: ['', Validators.pattern(/^\(\d{3}\)\s\d{3}-\d{4}$/)],
+      phone: ['', [Validators.required, Validators.pattern(/^\d{10}$/)]],
       zip: ['', Validators.required],
       workType: ['', Validators.required],
       jobDescription: [''],
@@ -40,7 +40,10 @@ export class FormComponent implements AfterViewInit {
 
   onSubmit(): void {
     if (this.estimateForm.valid) {
-      const formData = this.estimateForm.value;
+      const formData = { ...this.estimateForm.value };
+      formData.phone = this.formatPhone(formData.phone); // Format phone
+
+      console.log('Formatted Form Data Sent to Backend:', formData);
 
       this.http
         .post('https://tcc-website-q9vq.onrender.com/send-email', formData)
@@ -54,8 +57,12 @@ export class FormComponent implements AfterViewInit {
           }
         );
     } else {
-      console.error('Form is invalid');
+      console.error('Form is invalid:', this.estimateForm.errors);
     }
+  }
+
+  formatPhone(phone: string): string {
+    return phone.replace(/(\d{3})(\d{3})(\d{4})/, '($1) $2-$3');
   }
 
   showModal(): void {
@@ -68,7 +75,7 @@ export class FormComponent implements AfterViewInit {
 
   updateContactMethod(selectedMethod: string): void {
     this.estimateForm.patchValue({ preferredContact: selectedMethod });
-
+    console.log('Selected Contact Method:', selectedMethod); // Debugging
     const emailField = document.getElementById('email') as HTMLInputElement;
     const phoneField = document.getElementById(
       'phone-number'
