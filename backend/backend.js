@@ -36,11 +36,27 @@ app.use("/send-email", limiter); // Apply to the specific route
 
 // Endpoint to handle form submission
 app.post("/send-email", async (req, res) => {
-  const { firstName, lastName, zip, email, workType, jobDescription } =
-    req.body;
+  const {
+    firstName,
+    lastName,
+    zip,
+    email,
+    phone,
+    workType,
+    jobDescription,
+    preferredContact, // Include preferredContact
+  } = req.body;
 
   // Basic validation
-  if (!firstName || !lastName || !zip || !email || !workType) {
+  if (
+    !firstName ||
+    !lastName ||
+    !zip ||
+    !email ||
+    !phone ||
+    !workType ||
+    !preferredContact // Validate preferredContact
+  ) {
     return res.status(400).json({ message: "Missing required fields" });
   }
 
@@ -66,9 +82,11 @@ app.post("/send-email", async (req, res) => {
     You have a new estimate request:
     Name: ${firstName} ${lastName}
     ZIP Code: ${zip}
-    Email: ${email}
+    Preferred Contact Method: ${
+      preferredContact === "email" ? `Email: ${email}` : `Phone: ${phone}`
+    }
     Work Type: ${workType}
-    Job Description: ${jobDescription}
+    Job Description: ${jobDescription || "N/A"}
   `,
   };
 

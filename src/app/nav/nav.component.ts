@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ScrollService } from '../services/scroll/scroll.service';
 
 @Component({
   selector: 'app-nav',
@@ -7,6 +8,8 @@ import { Component } from '@angular/core';
 })
 export class NavComponent {
   mobileMenuOpen = false;
+
+  constructor(private scrollService: ScrollService) {}
 
   toggleMobileMenu() {
     this.mobileMenuOpen = !this.mobileMenuOpen;
@@ -17,9 +20,7 @@ export class NavComponent {
   }
 
   scrollTo(sectionId: string): void {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
+    this.closeMobileMenu();
+    this.scrollService.scrollTo(sectionId);
   }
 }

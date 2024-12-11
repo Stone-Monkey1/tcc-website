@@ -75,8 +75,8 @@ form.thomason_construction_company {
   color: #999999;
 }
 .preferred-contact-button-container {
-  background-color: #0f30ab;
-  border: 3px solid #0f30ab;
+  background-color: black;
+  border: 3px solid black;
   border-radius: 6px;
   width: 140px;
   margin: auto auto 10px auto;
@@ -95,10 +95,10 @@ form.thomason_construction_company {
 .preferred-contact-button-container a:active {
   color: black;
   text-decoration: none;
-  background: RGB(198, 238, 255);
+  background: rgb(23, 123, 78);
 }
 .preferred-contact-button-container a:first-of-type {
-  border-right: solid 1px RGB(198, 238, 255);
+  border-right: solid 1px rgb(23, 123, 78);
 }
 .thomason_construction_company button[type="submit"] {
   background: green;
