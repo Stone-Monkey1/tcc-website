@@ -27,7 +27,7 @@ export class FormComponent implements AfterViewInit {
       lastName: ['', Validators.required],
       preferredContact: ['email', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      phone: ['', [Validators.required, Validators.pattern(/^\d{10}$/)]],
+      phone: ['', [Validators.pattern(/^\d{10}$/)]],
       zip: ['', Validators.required],
       workType: ['', Validators.required],
       jobDescription: [''],
@@ -36,6 +36,7 @@ export class FormComponent implements AfterViewInit {
 
   ngAfterViewInit(): void {
     this.initializePreferredContactButtons();
+    this.updateContactMethod('email');
   }
 
   onSubmit(): void {
@@ -75,7 +76,27 @@ export class FormComponent implements AfterViewInit {
 
   updateContactMethod(selectedMethod: string): void {
     this.estimateForm.patchValue({ preferredContact: selectedMethod });
+
+    // Update validators dynamically
+    if (selectedMethod === 'email') {
+      this.estimateForm
+        .get('email')
+        ?.setValidators([Validators.required, Validators.email]);
+      this.estimateForm.get('phone')?.clearValidators();
+    } else if (selectedMethod === 'phone') {
+      this.estimateForm
+        .get('phone')
+        ?.setValidators([Validators.required, Validators.pattern(/^\d{10}$/)]);
+      this.estimateForm.get('email')?.clearValidators();
+    }
+
+    // Update the validity of the form controls
+    this.estimateForm.get('email')?.updateValueAndValidity();
+    this.estimateForm.get('phone')?.updateValueAndValidity();
+
     console.log('Selected Contact Method:', selectedMethod); // Debugging
+
+    // Update UI styles
     const emailField = document.getElementById('email') as HTMLInputElement;
     const phoneField = document.getElementById(
       'phone-number'
