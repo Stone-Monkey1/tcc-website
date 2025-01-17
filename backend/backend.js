@@ -48,15 +48,7 @@ app.post("/send-email", async (req, res) => {
   } = req.body;
 
   // Basic validation for required fields
-  if (
-    !firstName ||
-    !lastName ||
-    !zip ||
-    !email ||
-    !phone ||
-    !workType ||
-    !preferredContact
-  ) {
+  if (!firstName || !lastName || !zip || !workType || !preferredContact) {
     return res.status(400).json({ message: "Missing required fields" });
   }
 
@@ -67,9 +59,16 @@ app.post("/send-email", async (req, res) => {
       .json({ message: "Invalid preferred contact method" });
   }
 
-  // Validate email format
-  if (!email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
-    return res.status(400).json({ message: "Invalid email format" });
+  // Validate email and phone based on preferred contact method
+  if (
+    preferredContact === "email" &&
+    (!email || !email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/))
+  ) {
+    return res.status(400).json({ message: "Invalid or missing email" });
+  }
+
+  if (preferredContact === "phone" && (!phone || !phone.match(/^\d{10}$/))) {
+    return res.status(400).json({ message: "Invalid or missing phone number" });
   }
 
   // Create the transporter
@@ -83,7 +82,7 @@ app.post("/send-email", async (req, res) => {
 
   // Email content
   const mailOptions = {
-    from: email,
+    from: email || process.env.EMAIL_USER, // Fallback if email is not provided
     to: process.env.EMAIL_TO,
     subject: "New Estimate Request",
     text: `
@@ -91,12 +90,13 @@ app.post("/send-email", async (req, res) => {
           Name: ${firstName} ${lastName}
           ZIP Code: ${zip}
           Preferred Contact Method: ${preferredContact}
-          Email: ${email}
-          Phone: ${phone}
+          Email: ${email || "N/A"}
+          Phone: ${phone || "N/A"}
           Work Type: ${workType}
           Job Description: ${jobDescription || "N/A"}
       `,
   };
+
   try {
     // Send the email
     const info = await transporter.sendMail(mailOptions);
