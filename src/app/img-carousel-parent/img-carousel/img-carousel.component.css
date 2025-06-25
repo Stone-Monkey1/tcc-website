@@ -172,10 +172,37 @@
 .siding-replacement-after {
   background: url(../../../assets/siding-replacement-after.jpg);
 }
+.gordons-1 {
+  background: url(../../../assets/Gordons-1.jpg);
+}
+.gordons-2 {
+  background: url(../../../assets/Gordons-2.jpg);
+}
+.gordons-3 {
+  background: url(../../../assets/Gordons-3.jpg);
+}
+.gordons-4 {
+  background: url(../../../assets/Gordons-4.jpg);
+}
+.s-laurel-1 {
+  background: url(../../../assets/S-Laurel-1.png);
+}
+.s-laurel-2 {
+  background: url(../../../assets/S-Laurel-2.png);
+}
+.s-laurel-3 {
+  background: url(../../../assets/S-Laurel-3.png);
+}
+
 ::ng-deep .carousel-2 .cardV2 {
   width: 50%;
   margin: auto;
   height: 70vh;
+}
+@media (max-width: 991px) {
+  ::ng-deep .carousel-2 .cardV2 {
+    width: auto;
+  }
 }
 .cardV2-text-content {
   padding: 12px;
@@ -220,6 +247,7 @@
   } */
   .cardV2 {
     height: 650px;
+    width: 100%;
   }
   .porch-before-2 {
     background-position: center bottom;
@@ -227,7 +255,7 @@
 }
 @media (max-width: 576px) {
   .cardV2 {
-    height: 30vh;
+    height: 52vh;
   }
   #horizontal-carousel-component-cards .scroll-horizontal {
     width: 100%;

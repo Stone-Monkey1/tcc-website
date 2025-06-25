@@ -3,6 +3,7 @@ nav {
   top: 0;
   width: 100%;
   z-index: 1000;
+  background-color: #237b4e;
 }
 .contact-info {
   text-align: center;
@@ -16,6 +17,12 @@ nav {
 }
 .flex-row-content.nav-logo {
   flex-direction: row;
+}
+.flex-row-content.nav-logo img{
+  max-height: 100px;
+  border-radius: 12px;
+  padding: 1%;
+  background-color: white;
 }
 .flex-row-content.nav-buttons {
   flex-direction: column;
